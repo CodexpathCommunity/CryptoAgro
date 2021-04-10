@@ -1,9 +1,19 @@
-import { HeaderContainer } from "./HeaderElement";
+import {
+  HeaderCenter,
+  HeaderContainer,
+  HeaderContent,
+  HeaderLeft,
+  HeaderRight,
+} from "./HeaderElement";
 
 function Header() {
   return (
     <HeaderContainer>
-      <h1>this is the header seciton.</h1>
+      <HeaderContent>
+        <HeaderRight>this</HeaderRight>
+        <HeaderCenter>this </HeaderCenter>
+        <HeaderLeft>this</HeaderLeft>
+      </HeaderContent>
     </HeaderContainer>
   );
 }
