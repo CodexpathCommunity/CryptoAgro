@@ -2,34 +2,32 @@ import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
   display: flex;
-  height: 50px;
   align-items: center;
+  box-sizing: border-box;
+  border-bottom: 4px solid whitesmoke;
 `;
 export const HeaderContent = styled.div`
   max-width: 1400px;
   width: 90%;
-  margin: 50px auto 0 auto;
+  margin: 0 auto;
   display: flex;
   align-items: center;
-  height: 100%;
-  border-bottom: 3px solid blue;
+  height: 60px;
 `;
-export const HeaderRight = styled.div`
-  flex: 0.3;
-  background: red;
-  height: 100%;
-  border-radius: 30px 30px 0 0;
+export const HeaderLogo = styled.h2`
+  font-family: "Audiowide", cursive;
+  font-weight: 800;
+  font-size: 35px;
+  margin-right: 55px;
 `;
-export const HeaderCenter = styled.div`
-  flex: 0.4;
-  background: yellowgreen;
-  height: 100%;
-  border-radius: 0 0 30px 30px;
+export const HeaderLinkContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex: 1;
 `;
-export const HeaderLeft = styled.div`
-  flex: 0.3;
-  background: green;
-  height: 100%;
-  border-radius: 30px 30px 0 0;
+export const HeaderLinks = styled.h3`
+  font-size: 18px;
+  font-weight: 600;
+  padding: 0 35px 0 0;
 `;
 export const HeaderRule = styled.div``;

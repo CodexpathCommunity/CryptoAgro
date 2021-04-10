@@ -1,18 +1,24 @@
 import {
-  HeaderCenter,
   HeaderContainer,
   HeaderContent,
-  HeaderLeft,
-  HeaderRight,
+  HeaderLogo,
+  HeaderLinkContainer,
+  HeaderLinks,
 } from "./HeaderElement";
 
 function Header() {
   return (
     <HeaderContainer>
       <HeaderContent>
-        <HeaderRight>this</HeaderRight>
-        <HeaderCenter>this </HeaderCenter>
-        <HeaderLeft>this</HeaderLeft>
+        <HeaderLogo>CryptoAgro</HeaderLogo>
+        <HeaderLinkContainer>
+          <HeaderLinks>About</HeaderLinks>
+          <HeaderLinks>About</HeaderLinks>
+          <HeaderLinks>About</HeaderLinks>
+          <HeaderLinks>About</HeaderLinks>
+          <HeaderLinks>About</HeaderLinks>
+        </HeaderLinkContainer>
+        <HeaderLinks>About</HeaderLinks>
       </HeaderContent>
     </HeaderContainer>
   );
