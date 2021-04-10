@@ -1,3 +1,4 @@
+import { Button } from "@material-ui/core";
 import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
@@ -15,7 +16,7 @@ export const HeaderContent = styled.div`
   height: 60px;
 `;
 export const HeaderLogo = styled.h2`
-  font-family: "Audiowide", cursive;
+  font-family: "Saira Stencil One";
   font-weight: 800;
   font-size: 35px;
   margin-right: 55px;
@@ -27,7 +28,14 @@ export const HeaderLinkContainer = styled.div`
 `;
 export const HeaderLinks = styled.h3`
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 400;
   padding: 0 35px 0 0;
+`;
+export const HeadeBtn = styled(Button)`
+  text-transform: inherit !important ;
+  padding: 5px 15px 5px 15px !important ;
+  border-radius: 15px !important ;
+  border: 1px solid black !important ;
+  font-weight: 1000 !important ;
 `;
 export const HeaderRule = styled.div``;

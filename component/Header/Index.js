@@ -4,6 +4,7 @@ import {
   HeaderLogo,
   HeaderLinkContainer,
   HeaderLinks,
+  HeadeBtn,
 } from "./HeaderElement";
 
 function Header() {
@@ -18,7 +19,7 @@ function Header() {
           <HeaderLinks>About</HeaderLinks>
           <HeaderLinks>About</HeaderLinks>
         </HeaderLinkContainer>
-        <HeaderLinks>About</HeaderLinks>
+        <HeadeBtn>Sign-In</HeadeBtn>
       </HeaderContent>
     </HeaderContainer>
   );
