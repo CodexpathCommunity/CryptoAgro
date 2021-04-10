@@ -1,14 +1,6 @@
-import {
-  HeaderContainer,
-  HeaderContent,
-  HeaderLogo,
-  HeaderLinkContainer,
-  HeaderLinks,
-  HeadeBtn,
-} from "./HeaderElement";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
-import { useState } from "react";
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -36,11 +28,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Header() {
+export default function SimpleModal() {
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
-  const [modalStyle] = useState(getModalStyle);
-  const [open, setOpen] = useState(false);
+  const [modalStyle] = React.useState(getModalStyle);
+  const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
     setOpen(true);
@@ -56,34 +48,23 @@ function Header() {
       <p id="simple-modal-description">
         Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
       </p>
+      <SimpleModal />
     </div>
   );
 
   return (
-    <HeaderContainer>
-      <HeaderContent>
-        <HeaderLogo>CryptoAgro</HeaderLogo>
-        <HeaderLinkContainer>
-          <HeaderLinks>About</HeaderLinks>
-          <HeaderLinks>About</HeaderLinks>
-          <HeaderLinks>About</HeaderLinks>
-          <HeaderLinks>About</HeaderLinks>
-          <HeaderLinks>About</HeaderLinks>
-        </HeaderLinkContainer>
-        <HeadeBtn type="button" onClick={handleOpen}>
-          Sign-In
-        </HeadeBtn>
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="simple-modal-title"
-          aria-describedby="simple-modal-description"
-        >
-          {body}
-        </Modal>
-      </HeaderContent>
-    </HeaderContainer>
+    <div>
+      <button type="button" onClick={handleOpen}>
+        Open Modal
+      </button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+      >
+        {body}
+      </Modal>
+    </div>
   );
 }
-
-export default Header;
