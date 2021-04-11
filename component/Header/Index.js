@@ -5,10 +5,13 @@ import {
   HeaderLinkContainer,
   HeaderLinks,
   HeadeBtn,
+  HeaderAvatar,
 } from "./HeaderElement";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import { useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../firebase";
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -58,6 +61,7 @@ function Header() {
       </p>
     </div>
   );
+  const [user] = useAuthState(auth);
 
   return (
     <HeaderContainer>
@@ -70,9 +74,14 @@ function Header() {
           <HeaderLinks>About</HeaderLinks>
           <HeaderLinks>About</HeaderLinks>
         </HeaderLinkContainer>
-        <HeadeBtn type="button" onClick={handleOpen}>
-          Sign-In
-        </HeadeBtn>
+        {user ? (
+          <HeadeBtn type="button" onClick={handleOpen}>
+            Sign-In
+          </HeadeBtn>
+        ) : (
+          <HeaderAvatar />
+        )}
+
         <Modal
           open={open}
           onClose={handleClose}

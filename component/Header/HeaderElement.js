@@ -1,4 +1,4 @@
-import { Button } from "@material-ui/core";
+import { Button, Avatar } from "@material-ui/core";
 import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
@@ -38,4 +38,5 @@ export const HeadeBtn = styled(Button)`
   border: 1px solid black !important ;
   font-weight: 1000 !important ;
 `;
+export const HeaderAvatar = styled(Avatar)``;
 export const HeaderRule = styled.div``;
