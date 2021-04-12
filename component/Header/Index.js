@@ -6,12 +6,13 @@ import {
   HeaderLinks,
   HeadeBtn,
   HeaderAvatar,
+  LoginHeader,
 } from "./HeaderElement";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../firebase";
+import { auth, provider } from "../../firebase";
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -36,6 +37,9 @@ const useStyles = makeStyles((theme) => ({
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
+    display: "flex",
+    alignItems: "center",
+    flexDirection: " column",
   },
 }));
 
@@ -53,12 +57,15 @@ function Header() {
     setOpen(false);
   };
 
+  const signIn = () => {
+    setOpen(false);
+    auth.signInWithPopup(provider).catch(alert);
+  };
+
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      <h2 id="simple-modal-title">Text in a modal</h2>
-      <p id="simple-modal-description">
-        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-      </p>
+      <LoginHeader>Welcome. Login to continue</LoginHeader>
+      <HeadeBtn onClick={signIn}>Continue With Google </HeadeBtn>
     </div>
   );
   const [user] = useAuthState(auth);
@@ -75,11 +82,11 @@ function Header() {
           <HeaderLinks>About</HeaderLinks>
         </HeaderLinkContainer>
         {user ? (
+          <HeaderAvatar />
+        ) : (
           <HeadeBtn type="button" onClick={handleOpen}>
             Sign-In
           </HeadeBtn>
-        ) : (
-          <HeaderAvatar />
         )}
 
         <Modal

@@ -39,4 +39,8 @@ export const HeadeBtn = styled(Button)`
   font-weight: 1000 !important ;
 `;
 export const HeaderAvatar = styled(Avatar)``;
+export const LoginHeader = styled.h2`
+  margin-bottom: 35px;
+`;
+
 export const HeaderRule = styled.div``;
