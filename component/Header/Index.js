@@ -64,7 +64,7 @@ function Header() {
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      <LoginHeader>Welcome. Login to continue</LoginHeader>
+      <LoginHeader>Login to continue</LoginHeader>
       <HeadeBtn onClick={signIn}>Continue With Google </HeadeBtn>
     </div>
   );
@@ -82,7 +82,7 @@ function Header() {
           <HeaderLinks>About</HeaderLinks>
         </HeaderLinkContainer>
         {user ? (
-          <HeaderAvatar />
+          <HeaderAvatar onClick={() => auth.signOut()} src={user.photoURL} />
         ) : (
           <HeadeBtn type="button" onClick={handleOpen}>
             Sign-In
