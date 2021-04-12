@@ -16,6 +16,8 @@ import { auth, provider } from "../../firebase";
 import LoginModal from "./LoginModal";
 
 function Header() {
+  const [open, setOpen] = useState(false);
+
   const handleOpen = () => {
     setOpen(true);
   };
