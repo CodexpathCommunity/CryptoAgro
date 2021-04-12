@@ -8,15 +8,16 @@ import {
   HeaderAvatar,
   LoginHeader,
 } from "./HeaderElement";
-import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, provider } from "../../firebase";
 import LoginModal from "./LoginModal";
+import ProfileModal from "./ProfileModal";
 
 function Header() {
   const [open, setOpen] = useState(false);
+  const [openProfle, setOpenProfle] = useState(false);
 
   const handleOpen = () => {
     setOpen(true);
@@ -24,11 +25,6 @@ function Header() {
 
   const handleClose = () => {
     setOpen(false);
-  };
-
-  const signIn = () => {
-    setOpen(false);
-    auth.signInWithPopup(provider).catch(alert);
   };
 
   const [user] = useAuthState(auth);
@@ -45,7 +41,10 @@ function Header() {
           <HeaderLinks>About</HeaderLinks>
         </HeaderLinkContainer>
         {user ? (
-          <HeaderAvatar onClick={() => auth.signOut()} src={user.photoURL} />
+          <HeaderAvatar
+            onClick={() => setOpenProfle(true)}
+            src={user.photoURL}
+          />
         ) : (
           <HeadeBtn type="button" onClick={handleOpen}>
             Sign-In
@@ -59,6 +58,15 @@ function Header() {
           aria-describedby="simple-modal-description"
         >
           <LoginModal setOpen={setOpen} />
+        </Modal>
+
+        <Modal
+          open={openProfle}
+          onClose={() => setOpenProfle(false)}
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+        >
+          <ProfileModal setOpen={setOpenProfle} />
         </Modal>
       </HeaderContent>
     </HeaderContainer>

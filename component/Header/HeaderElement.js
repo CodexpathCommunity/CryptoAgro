@@ -39,8 +39,25 @@ export const HeadeBtn = styled(Button)`
   font-weight: 1000 !important ;
 `;
 export const HeaderAvatar = styled(Avatar)``;
+
+export const AvatarContainer = styled.div`
+  padding: 15px;
+  background: var(--grayTheme);
+  border-radius: 999px;
+  border: 2px solid var(--boldTheme);
+`;
+export const ProfileAvatar = styled(Avatar)`
+  height: 80px !important;
+  width: 80px !important;
+`;
 export const LoginHeader = styled.h2`
   margin-bottom: 35px;
+`;
+
+export const ProfileHeader = styled.h2`
+  width: 100%;
+  text-align: left;
+  font-size: 20px;
 `;
 
 export const HeaderRule = styled.div``;
