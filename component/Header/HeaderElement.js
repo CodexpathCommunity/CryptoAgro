@@ -60,4 +60,11 @@ export const ProfileHeader = styled.h2`
   font-size: 20px;
 `;
 
+export const ProfileContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+  justify-content: space-evenly;
+`;
 export const HeaderRule = styled.div``;

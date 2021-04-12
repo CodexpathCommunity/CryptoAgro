@@ -1,8 +1,15 @@
 import { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { ProfileAvatar, AvatarContainer, ProfileHeader } from "./HeaderElement";
+import {
+  ProfileAvatar,
+  AvatarContainer,
+  ProfileHeader,
+  ProfileContainer,
+  HeadeBtn,
+} from "./HeaderElement";
 import { auth } from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useRouter } from "next/router";
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -35,16 +42,25 @@ const useStyles = makeStyles((theme) => ({
 
 function ProfileModal({ setOpen }) {
   const [user] = useAuthState(auth);
+  const router = useRouter();
   const [modalStyle] = useState(getModalStyle);
   const classes = useStyles();
-  console.log(user);
-
+  const signOut = (e) => {
+    e.preventDefault();
+    setOpen(false);
+    auth.signOut();
+    router.push("/");
+  };
   return (
     <div style={modalStyle} className={classes.paper}>
-      <ProfileHeader>{user.displayName} </ProfileHeader>
+      <ProfileHeader>{user?.displayName} </ProfileHeader>
       <AvatarContainer>
-        <ProfileAvatar src={user.photoURL} />
+        <ProfileAvatar src={user?.photoURL} />
       </AvatarContainer>
+      <ProfileContainer>
+        <HeadeBtn onClick={signOut}>Logout</HeadeBtn>
+        <HeadeBtn>Dashboard</HeadeBtn>
+      </ProfileContainer>
     </div>
   );
 }
